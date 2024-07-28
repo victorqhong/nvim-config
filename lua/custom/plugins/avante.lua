@@ -22,6 +22,14 @@ local data = read_json_file(llm_credentials_file)
 local azure_endpoint = data['AZURE_OPENAI_ENDPOINT']
 local azure_api_key = data['AZURE_OPENAI_API_KEY']
 
+local get_build = function()
+  if vim.fn.has 'win32' then
+    return 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+  else
+    return 'make BUILD_FROM_SOURCE=false'
+  end
+end
+
 return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
@@ -37,8 +45,7 @@ return {
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  build = 'make BUILD_FROM_SOURCE=true',
-  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  build = get_build(),
   dependencies = {
     'stevearc/dressing.nvim',
     'nvim-lua/plenary.nvim',
