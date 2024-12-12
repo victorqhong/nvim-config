@@ -102,6 +102,9 @@ vim.keymap.set('n', '<C-n>', '<cmd>tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<Tab>', '<cmd>tabnext<CR>', { desc = 'Go to next tab' })
 vim.keymap.set('n', '<S-Tab>', '<cmd>tabprev<CR>', { desc = 'Go to previous tab' })
 
+vim.keymap.set('n', '<space>x', ':.lua<CR>', { desc = 'E[x]ecute current lua line' })
+vim.keymap.set('v', '<space>x', ':lua<CR>', { desc = 'E[x]ecute current lua selected text' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
