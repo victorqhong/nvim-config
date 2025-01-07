@@ -158,6 +158,7 @@ return {
       ts_ls = {},
       html = {},
       fsautocomplete = {},
+      csharp_ls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
